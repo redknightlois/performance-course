@@ -1,0 +1,8 @@
+*.user
+.vs/
+Course.FullNet/bin/
+Course.FullNet/obj/
+Course/BenchmarkDotNet.Artifacts/
+Course/bin/
+Course/obj/
+packages/
