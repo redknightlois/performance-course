@@ -9,9 +9,20 @@ namespace Course
         static void Main(string[] args)
         {
             //new Inlining().SumNonInlined();
-            new RefAllocation().StackByValue();
-            new RefAllocation().StackByRef();
-            new RefAllocation().HeapByReuse();            
+            //new RefAllocation().StackByValue();
+            //new RefAllocation().StackByRef();
+            //new RefAllocation().HeapByReuse();            
+            //new ConstantPropagation().SumNonInlined();
+            //new ConstantPropagation().SumInlined();            
+            //new SwitchIf().If();
+            //new SwitchIf().WithGaps();
+            //new SwitchIf().WithoutGaps();
+            //new VirtualCall().NonVirtual();
+            //new VirtualCall().VirtualThis();
+            //new VirtualCall().VirtualDerived();
+            //new VirtualCall().VirtualInterface();
+            //new StructDeadCode().WithClass();
+            //new StructDeadCode().WithStruct();
 
             BenchmarkSwitcher.FromAssembly(typeof(Program).GetTypeInfo().Assembly).Run(args);
             Console.WriteLine();

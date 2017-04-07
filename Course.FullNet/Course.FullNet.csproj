@@ -37,17 +37,17 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="BenchmarkDotNet, Version=0.10.3.82, Culture=neutral, PublicKeyToken=aa0ca2f9092cefc4, processorArchitecture=MSIL">
-      <HintPath>..\packages\BenchmarkDotNet.0.10.3.82\lib\net46\BenchmarkDotNet.dll</HintPath>
+    <Reference Include="BenchmarkDotNet, Version=0.10.3.87, Culture=neutral, PublicKeyToken=aa0ca2f9092cefc4, processorArchitecture=MSIL">
+      <HintPath>..\packages\BenchmarkDotNet.0.10.3.87\lib\net46\BenchmarkDotNet.dll</HintPath>
     </Reference>
-    <Reference Include="BenchmarkDotNet.Core, Version=0.10.3.82, Culture=neutral, PublicKeyToken=aa0ca2f9092cefc4, processorArchitecture=MSIL">
-      <HintPath>..\packages\BenchmarkDotNet.Core.0.10.3.82\lib\net46\BenchmarkDotNet.Core.dll</HintPath>
+    <Reference Include="BenchmarkDotNet.Core, Version=0.10.3.87, Culture=neutral, PublicKeyToken=aa0ca2f9092cefc4, processorArchitecture=MSIL">
+      <HintPath>..\packages\BenchmarkDotNet.Core.0.10.3.87\lib\net46\BenchmarkDotNet.Core.dll</HintPath>
     </Reference>
-    <Reference Include="BenchmarkDotNet.Diagnostics.Windows, Version=0.10.3.82, Culture=neutral, PublicKeyToken=aa0ca2f9092cefc4, processorArchitecture=MSIL">
-      <HintPath>..\packages\BenchmarkDotNet.Diagnostics.Windows.0.10.3.82\lib\net46\BenchmarkDotNet.Diagnostics.Windows.dll</HintPath>
+    <Reference Include="BenchmarkDotNet.Diagnostics.Windows, Version=0.10.3.87, Culture=neutral, PublicKeyToken=aa0ca2f9092cefc4, processorArchitecture=MSIL">
+      <HintPath>..\packages\BenchmarkDotNet.Diagnostics.Windows.0.10.3.87\lib\net46\BenchmarkDotNet.Diagnostics.Windows.dll</HintPath>
     </Reference>
-    <Reference Include="BenchmarkDotNet.Toolchains.Roslyn, Version=0.10.3.82, Culture=neutral, PublicKeyToken=aa0ca2f9092cefc4, processorArchitecture=MSIL">
-      <HintPath>..\packages\BenchmarkDotNet.Toolchains.Roslyn.0.10.3.82\lib\net46\BenchmarkDotNet.Toolchains.Roslyn.dll</HintPath>
+    <Reference Include="BenchmarkDotNet.Toolchains.Roslyn, Version=0.10.3.87, Culture=neutral, PublicKeyToken=aa0ca2f9092cefc4, processorArchitecture=MSIL">
+      <HintPath>..\packages\BenchmarkDotNet.Toolchains.Roslyn.0.10.3.87\lib\net46\BenchmarkDotNet.Toolchains.Roslyn.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CodeAnalysis, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeAnalysis.Common.2.0.0\lib\netstandard1.3\Microsoft.CodeAnalysis.dll</HintPath>
@@ -152,6 +152,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\Course\BranchPrediction.cs">
+      <Link>BranchPrediction.cs</Link>
+    </Compile>
+    <Compile Include="..\Course\ConstantPropagation.cs">
+      <Link>ConstantPropagation.cs</Link>
+    </Compile>
+    <Compile Include="..\Course\Dictionary.cs">
+      <Link>Dictionary.cs</Link>
+    </Compile>
     <Compile Include="..\Course\Inlining.cs">
       <Link>Inlining.cs</Link>
     </Compile>
@@ -160,6 +169,15 @@
     </Compile>
     <Compile Include="..\Course\RefAllocation.cs">
       <Link>RefAllocation.cs</Link>
+    </Compile>
+    <Compile Include="..\Course\StructDeadCode.cs">
+      <Link>StructDeadCode.cs</Link>
+    </Compile>
+    <Compile Include="..\Course\SwitchIf.cs">
+      <Link>SwitchIf.cs</Link>
+    </Compile>
+    <Compile Include="..\Course\VirtualCall.cs">
+      <Link>VirtualCall.cs</Link>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
