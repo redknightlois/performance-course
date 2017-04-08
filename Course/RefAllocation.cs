@@ -11,9 +11,7 @@ namespace Course
 {
     [Config(typeof(Config))]
     [MemoryDiagnoser]
-#if FULL
     [HardwareCounters(HardwareCounter.InstructionRetired)]
-#endif
     public class RefAllocation
     {
         private class Config : ManualConfig

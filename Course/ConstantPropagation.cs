@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Text;
 using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Diagnosers;
 
 #if FULL
 using BenchmarkDotNet.Diagnostics.Windows.Configs;
@@ -13,6 +14,7 @@ namespace Course
 #if FULL
     [InliningDiagnoser]
 #endif
+    [HardwareCounters(HardwareCounter.InstructionRetired)]
     public class ConstantPropagation
     {
 
