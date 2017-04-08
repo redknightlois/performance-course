@@ -467,8 +467,8 @@ namespace Workshop
             }
         }
 
-        private readonly static int[] dec32table = new int[] { 4, 1, 2, 1, 4, 4, 4, 4 };
-        private readonly static int[] dec64table = new int[] { 0, 0, 0, -1, 0, 1, 2, 3 };
+        private static readonly int[] dec32table = new int[] { 4, 1, 2, 1, 4, 4, 4, 4 };
+        private static readonly int[] dec64table = new int[] { 0, 0, 0, -1, 0, 1, 2, 3 };
 
         private static int LZ4_decompress_generic(byte* source, byte* dest, int inputSize, int outputSize, EndCondition endOnInput, EarlyEnd partialDecoding, int targetOutputSize, DictionaryType dict, byte* lowPrefix, byte* dictStart, int dictSize)
         {

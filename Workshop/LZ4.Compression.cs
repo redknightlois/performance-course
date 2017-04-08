@@ -11,7 +11,6 @@ using BenchmarkDotNet.Environments;
 using BenchmarkDotNet.Exporters;
 using BenchmarkDotNet.Jobs;
 using BenchmarkDotNet.Validators;
-using DotNetCross.Memory;
 
 namespace Workshop
 {
@@ -48,12 +47,12 @@ namespace Workshop
         }
 
 
-        private byte[] lowBitRandomInput = new byte[65 * 1024 * 1024];
-        private byte[] lowBitRandomOutput = new byte[65 * 1024 * 1024];
+        private byte[] lowBitRandomInput = new byte[Constants.Size.Megabyte];
+        private byte[] lowBitRandomOutput = new byte[Constants.Size.Megabyte];
         private byte[] lowBitEncodedOutput;
 
-        private byte[] highRepeatRandomInput = new byte[65 * 1024 * 1024];
-        private byte[] highRepeatRandomOutput = new byte[65 * 1024 * 1024];
+        private byte[] highRepeatRandomInput = new byte[Constants.Size.Megabyte];
+        private byte[] highRepeatRandomOutput = new byte[Constants.Size.Megabyte];
         private byte[] highRepeatEncodedOutput;
 
         [Setup]
@@ -79,10 +78,10 @@ namespace Workshop
 
                     var rnd = new Random(sequenceNumber);
                     for (int j = 0; j < sequenceLength; j++, i++)
-                        highRepeatRandomInput[i] = (byte)(rnd.Next() % 255);
-
-                    highRepeatEncodedOutput = new byte[LZ4.MaximumOutputLength(highRepeatRandomInput.Length)];
+                        highRepeatRandomInput[i] = (byte)(rnd.Next() % 255);                  
                 }
+
+                highRepeatEncodedOutput = new byte[LZ4.MaximumOutputLength(highRepeatRandomInput.Length)];
             }
         }
 
@@ -109,6 +108,5 @@ namespace Workshop
                 int uncompressedSize = LZ4.Decode64(encodedOutputPtr, compressedSize, outputPtr, lowBitRandomInput.Length, true);
             }
         }
-
     }
 }

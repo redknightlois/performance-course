@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using BenchmarkDotNet.Running;
 
 namespace Workshop
 {
@@ -10,9 +12,7 @@ namespace Workshop
     {
         static void Main(string[] args)
         {
-            var p = new LZ4CompressionBenchmark();
-            p.Setup();
-            p.HighRepetition();
+            BenchmarkSwitcher.FromAssembly(typeof(Program).GetTypeInfo().Assembly).Run(args);
         }
     }
 }
