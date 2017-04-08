@@ -6,3 +6,7 @@ Course/BenchmarkDotNet.Artifacts/
 Course/bin/
 Course/obj/
 packages/
+Workshop/Workshop/bin/
+Workshop/Workshop/obj/
+Workshop/bin/
+Workshop/obj/
