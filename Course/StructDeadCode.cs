@@ -6,8 +6,6 @@ using BenchmarkDotNet.Attributes;
 
 namespace Course
 {
-
-
     public class StructDeadCode
     {
         public interface IMarker { }
