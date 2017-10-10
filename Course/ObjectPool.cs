@@ -8,12 +8,20 @@ using BenchmarkDotNet.Diagnosers;
 
 namespace Course
 {
+    public sealed class ObjectPool<T> : ObjectPool<T, NoResetFactorySupport<T>, NonThreadAwareBehavior>
+        where T : class, new()
+    {
+        public ObjectPool(NoResetFactorySupport<T>.Factory factory, int size = 16)
+            : base(size, new NoResetFactorySupport<T>(factory))
+        { }
+    }
+
     public sealed class ObjectPool<T, TObjectLifecycle> : ObjectPool<T, TObjectLifecycle, NonThreadAwareBehavior>
         where T : class
         where TObjectLifecycle : struct, IObjectLifecycle<T>
     {
-        public ObjectPool(int size = 16, TObjectLifecycle factory = default(TObjectLifecycle), NonThreadAwareBehavior behavior = default(NonThreadAwareBehavior)) : base(size, factory, behavior)
-        {}
+        public ObjectPool(int size = 16, TObjectLifecycle factory = default(TObjectLifecycle)) : base(size, factory)
+        { }
     }
 
     public class ObjectPool<T, TObjectLifecycle, TProcessAwareBehavior>
@@ -395,6 +403,15 @@ namespace Course
         }
     }
 
+    public struct NeverEvictStrategy<T> : IEvictionStrategy<T> where T : class
+    {
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public bool CanEvict(T item)
+        {
+            return false;
+        }
+    }
+
     public interface IObjectLifecycle<T> where T : class
     {
         T New();
@@ -415,10 +432,6 @@ namespace Course
 
     public struct NoResetFactorySupport<T> : IObjectLifecycle<T> where T : class, new()
     {
-        /// <remarks>
-        /// Not using System.Func{T} because this file is linked into the (debugger) Formatter,
-        /// which does not have that type (since it compiles against .NET 2.0).
-        /// </remarks>
         public delegate T Factory();
 
         // factory is stored for the lifetime of the pool. We will call this only when pool needs to
@@ -490,10 +503,8 @@ namespace Course
             }
         }
 
-        private static readonly NoResetFactorySupport<ObjectToPool> _factory = new NoResetFactorySupport<ObjectToPool>(() => new ObjectToPool());
-
         private static readonly ObjectPool<ObjectToPool, NoResetSupport<ObjectToPool>> _withoutFactory = new ObjectPool<ObjectToPool, NoResetSupport<ObjectToPool>>();
-        private static readonly ObjectPool<ObjectToPool, NoResetFactorySupport<ObjectToPool>> _withFactory = new ObjectPool<ObjectToPool, NoResetFactorySupport<ObjectToPool>>(factory: _factory);
+        private static readonly ObjectPool<ObjectToPool> _withFactory = new ObjectPool<ObjectToPool>(() => new ObjectToPool());
         private static readonly ObjectPool<ObjectToPool, ObjectToPool.Behavior> _withSpecificNew = new ObjectPool<ObjectToPool, ObjectToPool.Behavior>();
 
         [Benchmark]
