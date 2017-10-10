@@ -23,9 +23,9 @@ namespace Course
             //new VirtualCall().VirtualInterface();
             //new StructDeadCode().WithClass();
             //new StructDeadCode().WithStruct();
-            new ObjectPoolBenchmark().UsingFactory();
-            new ObjectPoolBenchmark().UsingGenericNew();
-            new ObjectPoolBenchmark().UsingSpecificNew();
+            //new ObjectPoolBenchmark().UsingFactory();
+            //new ObjectPoolBenchmark().UsingGenericNew();
+            //new ObjectPoolBenchmark().UsingSpecificNew();
 
             BenchmarkSwitcher.FromAssembly(typeof(Program).GetTypeInfo().Assembly).Run(args);
             Console.WriteLine();

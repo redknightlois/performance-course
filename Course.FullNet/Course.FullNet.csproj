@@ -43,8 +43,8 @@
     <Reference Include="BenchmarkDotNet.Core, Version=0.10.9.0, Culture=neutral, PublicKeyToken=aa0ca2f9092cefc4, processorArchitecture=MSIL">
       <HintPath>..\packages\BenchmarkDotNet.Core.0.10.9\lib\net46\BenchmarkDotNet.Core.dll</HintPath>
     </Reference>
-    <Reference Include="BenchmarkDotNet.Diagnostics.Windows, Version=0.10.3.87, Culture=neutral, PublicKeyToken=aa0ca2f9092cefc4, processorArchitecture=MSIL">
-      <HintPath>..\packages\BenchmarkDotNet.Diagnostics.Windows.0.10.3.87\lib\net46\BenchmarkDotNet.Diagnostics.Windows.dll</HintPath>
+    <Reference Include="BenchmarkDotNet.Diagnostics.Windows, Version=0.10.9.0, Culture=neutral, PublicKeyToken=aa0ca2f9092cefc4, processorArchitecture=MSIL">
+      <HintPath>..\packages\BenchmarkDotNet.Diagnostics.Windows.0.10.9\lib\net46\BenchmarkDotNet.Diagnostics.Windows.dll</HintPath>
     </Reference>
     <Reference Include="BenchmarkDotNet.Toolchains.Roslyn, Version=0.10.9.0, Culture=neutral, PublicKeyToken=aa0ca2f9092cefc4, processorArchitecture=MSIL">
       <HintPath>..\packages\BenchmarkDotNet.Toolchains.Roslyn.0.10.9\lib\net46\BenchmarkDotNet.Toolchains.Roslyn.dll</HintPath>
@@ -85,6 +85,9 @@
     </Reference>
     <Reference Include="System.Diagnostics.StackTrace, Version=4.0.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Diagnostics.StackTrace.4.3.0\lib\net46\System.Diagnostics.StackTrace.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
     </Reference>
     <Reference Include="System.IO.Compression, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\System.IO.Compression.4.3.0\lib\net46\System.IO.Compression.dll</HintPath>
@@ -163,6 +166,9 @@
     </Compile>
     <Compile Include="..\Course\ConstantPropagation.cs">
       <Link>ConstantPropagation.cs</Link>
+    </Compile>
+    <Compile Include="..\Course\CustomDictionary.cs">
+      <Link>CustomDictionary.cs</Link>
     </Compile>
     <Compile Include="..\Course\Dictionary.cs">
       <Link>Dictionary.cs</Link>
