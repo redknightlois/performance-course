@@ -60,7 +60,7 @@ namespace Course
             for (long i = 0; i < 100000; i++)
             {
                 WorkByRef(i, ref output);
-                result = output.A;
+                result += output.A;
             }
             return result;
         }
